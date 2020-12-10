@@ -1,0 +1,62 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "build"
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "label": "Build"
+        },
+        {
+            "type": "shell",
+            "command": "wasm-pack",
+            "args": [
+                "build",
+                "--target",
+                "web"
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": "build",
+            "label": "Build Web"
+        },
+        {
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "test",
+                "--",
+                "--nocapture"
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "label": "Test"
+        },
+        {
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "doc"
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "label": "Docs"
+        }
+    ]
+}

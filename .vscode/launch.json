@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable",
+            "terminal": "integrated",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=wasm_specs",
+                    "--package=wasm_specs",
+                    "--manifest-path=Cargo.toml"
+                ],
+                "filter": {
+                    "kind": "bin"
+                }
+            }
+        },
+        {
+            "type": "python",
+            "request": "launch",
+            "name": "Debug web",
+            "preLaunchTask": "Build Web",
+            "python": "/usr/bin/python3.7",
+            "module": "http.server",
+            "serverReadyAction": {
+                "pattern": "Serving HTTP on .* port ([0-9]+)",
+                "uriFormat": "http://localhost:%s",
+                "action": "debugWithChrome"
+            }
+        }
+    ]
+}
