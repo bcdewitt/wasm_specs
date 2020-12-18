@@ -2,61 +2,61 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Build",
             "type": "shell",
             "command": "cargo",
-            "args": [
-                "build"
-            ],
-            "problemMatcher": [
-                "$rustc"
-            ],
+            "args": [ "build" ],
+            "problemMatcher": [ "$rustc" ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "label": "Build"
         },
         {
+            "label": "Build Windows",
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "build",
+                "--target",
+                "x86_64-pc-windows-gnu"
+            ],
+            "problemMatcher": [ "$rustc" ],
+            "group": "build",
+        },
+        {
+            "label": "Build Web",
             "type": "shell",
             "command": "wasm-pack",
             "args": [
                 "build",
                 "--target",
-                "web"
+                "web",
             ],
-            "problemMatcher": [
-                "$rustc"
-            ],
+            "problemMatcher": [ "$rustc" ],
             "group": "build",
-            "label": "Build Web"
         },
         {
+            "label": "Test",
             "type": "shell",
             "command": "cargo",
             "args": [
                 "test",
                 "--",
-                "--nocapture"
+                "--nocapture",
             ],
-            "problemMatcher": [
-                "$rustc"
-            ],
+            "problemMatcher": [ "$rustc" ],
             "group": {
                 "kind": "test",
-                "isDefault": true
+                "isDefault": true,
             },
-            "label": "Test"
         },
         {
+            "label": "Docs",
             "type": "shell",
             "command": "cargo",
-            "args": [
-                "doc"
-            ],
-            "problemMatcher": [
-                "$rustc"
-            ],
-            "label": "Docs"
+            "args": [ "doc" ],
+            "problemMatcher": [ "$rustc" ]
         }
     ]
 }

@@ -22,12 +22,14 @@ RUN apt-get update \
     && apt-get -y install git procps lsb-release \
     #
     # Install other dependencies
-    && apt-get install -y lldb \
+    && apt-get install -y lldb mingw-w64\
     #
     # Install Rust components
     && rustup update \
     && rustup component add rls rust-analysis rust-src rustfmt clippy \
     && rustup target add wasm32-unknown-unknown \
+    && rustup target add x86_64-pc-windows-gnu \
+    && rustup toolchain install stable-x86_64-pc-windows-gnu \
     && curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh \
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
